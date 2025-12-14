@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anfrage – Event-Service</title>
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070a12,#090b14);
+      color:var(--text);
+      min-height:100vh;
+    }
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      padding:24px 16px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+    h1{margin:0 0 10px}
+    p{margin:0 0 14px; color:var(--muted)}
+    label{
+      display:block;
+      font-size:12px;
+      margin-top:12px;
+    }
+    input, textarea{
+      width:100%;
+      padding:11px;
+      margin-top:6px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.2);
+      color:var(--text);
+    }
+    textarea{min-height:100px}
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media(max-width:700px){
+      .row{grid-template-columns:1fr}
+    }
+    .check{
+      display:flex;
+      gap:10px;
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+    button,a.btn{
+      border-radius:999px;
+      padding:10px 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      cursor:pointer;
+      text-decoration:none;
+      font-weight:700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Anfrage</h1>
+      <p>Fülle das Formular aus – du bekommst eine Rückmeldung per E-Mail.</p>
+
+      <form
+        method="POST"
+        action="FORM_ACTION_HIER_EINTRAGEN"
+      >
+        <input type="hidden" name="_subject" value="Neue Event-Anfrage" />
+        <input type="hidden" name="_redirect" value="success.html" />
+
+        <div class="row">
+          <label>
+            Name
+            <input name="Name" required>
+          </label>
+
+          <label>
+            E-Mail
+            <input name="E-Mail" type="email" required>
+          </label>
+        </div>
+
+        <label>
+          Telefon (optional)
+          <input name="Telefon">
+        </label>
+
+        <label>
+          Datum der Veranstaltung
+          <input name="Datum" type="date" required>
+        </label>
+
+        <div class="row">
+          <label>
+            Uhrzeit von
+            <input name="Uhrzeit von" type="time" required>
+          </label>
+          <label>
+            Uhrzeit bis
+            <input name="Uhrzeit bis" type="time" required>
+          </label>
+        </div>
+
+        <label>
+          Ort der Veranstaltung
+          <input name="Ort der Veranstaltung" required placeholder="Adresse oder Location-Name">
+        </label>
+
+        <label>
+          Weitere Infos
+          <textarea name="Nachricht" placeholder="Indoor / Outdoor, Gästezahl, Besonderheiten …"></textarea>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" required>
+          <span>
+            Ich willige ein, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden.
+          </span>
+        </label>
+
+        <div class="actions">
+          <button type="submit">Anfrage senden</button>
+          <a class="btn" href="index.html">Zurück</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
