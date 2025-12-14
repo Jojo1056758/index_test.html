@@ -1,201 +1,359 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PA-Anlage Vermietung</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PA-Anlage Vermietung</title>
+  <meta name="description" content="PA-Anlage mieten für Hausparty, Geburtstag oder Event." />
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 20% 0%, rgba(167,139,250,0.22), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(110,231,255,0.16), transparent 60%),
+        linear-gradient(180deg,#070a12 0%,#090b14 45%,#070a12 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:blur(12px);
+      background:linear-gradient(180deg, rgba(11,15,25,.85), rgba(11,15,25,.55));
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo{
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,.35), transparent 40%),
+        linear-gradient(135deg, rgba(110,231,255,.85), rgba(167,139,250,.85));
+      box-shadow:0 10px 30px rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.15);
+    }
+    .brand-text{display:grid;line-height:1.15}
+    .brand-text strong{font-size:14px}
+    .brand-text span{font-size:12px;color:var(--muted)}
+    .nav{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+      transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.20);
+    }
+    .btn.primary{
+      border:1px solid rgba(110,231,255,.40);
+      background:linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.18));
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    main{padding:44px 0 10px}
+    .hero-main{
+      position:relative;
+      overflow:hidden;
+      padding:26px;
+    }
+    /* Hintergrundbild (nutzt dein echtes Foto) */
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      background-image:
+        linear-gradient(180deg, rgba(11,15,25,.92), rgba(11,15,25,.62)),
+        url("IMG_0818.jpeg");
+      background-size:cover;
+      background-position:center;
+      z-index:0;
+    }
+    .hero-main > *{position:relative; z-index:1}
+    h1{margin:0 0 10px; font-size:clamp(28px, 4vw, 44px); line-height:1.05}
+    .lead{margin:0 0 16px; color:var(--muted); font-size:15px; line-height:1.5}
+    .pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:14px 0 18px;
+    }
+    .pill{
+      font-size:12px;
+      color:rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      padding:7px 10px;
+      border-radius:999px;
+    }
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    section{padding:16px 0}
+    .section-title{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      margin:6px 0 10px;
+    }
+    .section-title h2{margin:0; font-size:18px}
+    .section-title span{color:var(--muted); font-size:12px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:14px;
+    }
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    .col-12{grid-column:span 12}
+    @media (max-width:920px){
+      .col-4,.col-6{grid-column:span 12}
+    }
+    .feature{
+      padding:16px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+    }
+    .feature h3{margin:0 0 8px; font-size:14px}
+    .feature p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
 
-<style>
-:root{
-  --bg:#0b0f19;
-  --card:rgba(255,255,255,.06);
-  --line:rgba(255,255,255,.14);
-  --text:rgba(255,255,255,.92);
-  --muted:rgba(255,255,255,.65);
-  --radius:18px;
-}
+    /* Galerie-Stile */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .g-item{
+      grid-column:span 4;
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+    }
+    @media (max-width:920px){
+      .g-item{grid-column:span 12}
+    }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
-  background:linear-gradient(180deg,#070a12,#0b0f19);
-  color:var(--text);
-}
+    /* WICHTIG: Ganzer Bildausschnitt sichtbar */
+    .g-item img{
+      width:100%;
+      height:230px;
+      object-fit:contain;          /* GANZES FOTO sichtbar */
+      object-position:center;
+      display:block;
+      background:rgba(0,0,0,.25);  /* falls Ränder entstehen */
+      transition:transform .25s ease;
+    }
+    .g-item:hover img{transform:scale(1.03)}
 
-a{color:inherit;text-decoration:none}
+    .g-cap{
+      padding:10px 12px;
+      color:var(--muted);
+      font-size:12px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
 
-.container{
-  width:min(1100px, calc(100% - 32px));
-  margin:0 auto;
-}
-
-/* HEADER */
-.topbar{
-  position:sticky;
-  top:0;
-  background:rgba(11,15,25,.85);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
-  z-index:10;
-}
-.topbar-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 0;
-}
-.nav{
-  display:flex;
-  gap:10px;
-}
-.btn{
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:var(--card);
-  font-weight:600;
-  font-size:13px;
-}
-
-/* HERO */
-.hero{
-  padding:40px 0;
-}
-.hero-card{
-  padding:26px;
-  border-radius:var(--radius);
-  background:var(--card);
-  border:1px solid var(--line);
-}
-
-/* SECTION */
-section{padding:30px 0}
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-  margin-bottom:14px;
-}
-.section-title h2{margin:0}
-.section-title span{font-size:12px;color:var(--muted)}
-
-/* FOTO-GALERIE */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:14px;
-}
-
-/* MAIN FOTO */
-.photo-main{
-  grid-column:span 12;
-  border-radius:var(--radius);
-  overflow:hidden;
-  border:1px solid var(--line);
-  background:#000;
-}
-.photo-main img{
-  width:100%;
-  height:420px;
-  object-fit:contain;
-  background:#000;
-}
-
-/* NORMALE FOTOS */
-.photo{
-  grid-column:span 4;
-  border-radius:var(--radius);
-  overflow:hidden;
-  border:1px solid var(--line);
-  background:#000;
-}
-.photo img{
-  width:100%;
-  height:260px;
-  object-fit:contain;
-  background:#000;
-}
-
-@media(max-width:900px){
-  .photo{grid-column:span 12}
-  .photo-main img{height:300px}
-}
-</style>
+    footer{
+      padding:22px 0 40px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    footer .foot{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      border-top:1px solid var(--line);
+      padding-top:14px;
+    }
+  </style>
 </head>
-
 <body>
-
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="container">
-    <div class="topbar-inner">
-      <strong>PA-Anlage Vermietung</strong>
-      <div class="nav">
-        <a class="btn" href="#leistungen">Leistungen</a>
-        <a class="btn" href="#fotos">Fotos</a>
-        <a class="btn" href="anfrage.html">Anfrage</a>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="brand" href="index.html">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="brand-text">
+            <strong>PA-Anlage Vermietung</strong>
+            <span>Sound für Party & Event</span>
+          </div>
+        </a>
+        <div class="nav">
+          <a class="btn" href="#leistungen">Leistungen</a>
+          <a class="btn" href="#bilder">Fotos</a>
+          <a class="btn primary" href="anfrage.html">Anfrage</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="container">
-    <div class="hero-card">
-      <h1>PA-Anlage mieten – einfach & zuverlässig</h1>
-      <p style="color:var(--muted)">
-        Sound für Partys, Events und Clubs – flexibel mit Aufbau, Abbau & DJ.
-      </p>
+  <!-- Hero -->
+  <main>
+    <div class="container">
+      <div class="card hero-main">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <h1>PA-Anlage mieten – schnell, klar, ohne Technikstress</h1>
+        <p class="lead">
+          Sag direkt, ob du Aufbau, Abbau oder Transport brauchst.
+          Mit den Fotos siehst du, wie die Anlage bei echten Events aussieht.
+        </p>
+        <div class="pills">
+          <div class="pill">- Aufbau optional</div>
+          <div class="pill">- Abbau optional</div>
+          <div class="pill">- Transport optional</div>
+          <div class="pill">- DJ optional</div>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="anfrage.html">Jetzt Anfrage stellen</a>
+          <a class="btn" href="#bilder">Fotos ansehen</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </main>
 
-<!-- FOTOS -->
-<section id="fotos">
-  <div class="container">
-    <div class="section-title">
-      <h2>Fotos</h2>
-      <span>Einblicke in echte Setups</span>
+  <!-- Leistungen -->
+  <section id="leistungen">
+    <div class="container">
+      <div class="section-title">
+        <h2>Leistungen</h2>
+        <span>kurz und knapp</span>
+      </div>
+      <div class="grid">
+        <div class="feature col-4">
+          <h3>Komplett-Set</h3>
+          <p>Anlage + Kabel + Zubehör – du musst nur die Quelle anschließen.</p>
+        </div>
+        <div class="feature col-4">
+          <h3>Aufbau / Abbau</h3>
+          <p>Ich komme vorbei, baue auf und/oder ab und pegle alles ein.</p>
+        </div>
+        <div class="feature col-4">
+          <h3>Transport</h3>
+          <p>Lieferung und Abholung nach Absprache.</p>
+        </div>
+        <div class="feature col-6">
+          <h3>Mikrofon & DJ</h3>
+          <p>Bei Bedarf Mikrofone und DJ-Service – sag einfach Bescheid.</p>
+        </div>
+        <div class="feature col-6">
+          <h3>Flexibel</h3>
+          <p>Ob Hausparty, Club, Gartenfest – das Set wird an deine Anforderungen angepasst.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="gallery">
-
-      <!-- MAIN PRODUKTFOTO -->
-      <div class="photo-main">
-        <img src="OBE1932C-0DE1-4BE8-8DF1-8DE4AC5A457.png" alt="PA Anlage Produktfoto">
+  <!-- Fotos -->
+  <section id="bilder">
+    <div class="container">
+      <div class="section-title">
+        <h2>Einblicke in echte Setups</h2>
+        <span>Fotos</span>
       </div>
 
-      <!-- SETUP ZWEI TOPS + SUB -->
-      <div class="photo">
-        <img src="IMG_0864.jpeg" alt="PA Setup mit zwei Tops und Subwoofer">
-      </div>
+      <div class="gallery">
+        <!-- 1) PRODUKTFOTO als erstes (Dateiname aus deinem Repo-Screenshot) -->
+        <div class="g-item">
+          <img src="OBE1932C-0DE1-4BE8-8DF1-8DE4AC5A457.png" alt="Produktfoto der PA-Anlage" loading="lazy">
+          <div class="g-cap">Einblicke in echte Setups</div>
+        </div>
 
-      <!-- DJ IM EINSATZ -->
-      <div class="photo">
-        <img src="IMG_2307.jpeg" alt="DJ im Einsatz">
-      </div>
+        <!-- 2) Zwei Tops + Sub -->
+        <div class="g-item">
+          <img src="IMG_0864.jpeg" alt="PA-Setup" loading="lazy">
+          <div class="g-cap">Einblicke in echte Setups</div>
+        </div>
 
-      <!-- WEITERE EINBLICKE -->
-      <div class="photo">
-        <img src="IMG_0818.jpeg" alt="DJ Setup Event">
-      </div>
+        <!-- 3) DJ im Einsatz -->
+        <div class="g-item">
+          <img src="IMG_2307.jpeg" alt="DJ im Einsatz" loading="lazy">
+          <div class="g-cap">Einblicke in echte Setups</div>
+        </div>
 
-      <div class="photo">
-        <img src="IMG_0853.jpeg" alt="Stimmung und Licht">
-      </div>
+        <!-- 4) Rest -->
+        <div class="g-item">
+          <img src="IMG_0818.jpeg" alt="Setup" loading="lazy">
+          <div class="g-cap">Einblicke in echte Setups</div>
+        </div>
 
+        <div class="g-item">
+          <img src="IMG_0853.jpeg" alt="Setup" loading="lazy">
+          <div class="g-cap">Einblicke in echte Setups</div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer style="padding:30px 0;color:var(--muted);font-size:12px">
-  <div class="container">
-    © 2025 PA-Anlage Vermietung ·
-    <a href="impressum.html">Impressum</a>
-  </div>
-</footer>
-
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <script>document.write(new Date().getFullYear());</script> PA-Anlage Vermietung</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="impressum.html">Impressum</a>
+          <a class="btn" href="anfrage.html">Anfrage</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
