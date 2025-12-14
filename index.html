@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PA‑Anlage Vermietung</title>
+  <title>PA-Anlage Vermietung</title>
   <meta name="description" content="PA-Anlage mieten für Hausparty, Geburtstag oder Event." />
   <style>
     :root{
@@ -108,7 +108,6 @@
       overflow:hidden;
       padding:26px;
     }
-    /* Test-Hintergrundbild (kannst du austauschen) */
     .hero-bg{
       position:absolute;
       inset:0;
@@ -142,15 +141,7 @@
       flex-wrap:wrap;
       align-items:center;
     }
-    .hero-side{padding:18px; display:grid; gap:12px}
-    .mini{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:var(--radius);
-      padding:14px;
-    }
-    .mini h3{margin:0 0 8px; font-size:14px}
-    .mini p{margin:0; color:var(--muted); font-size:13px; line-height:1.45}
+
     section{padding:16px 0}
     .section-title{
       display:flex;
@@ -180,11 +171,12 @@
     }
     .feature h3{margin:0 0 8px; font-size:14px}
     .feature p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
-    /* Galerie-Stile */
+
+    /* Fotos – alles sichtbar (kein Abschneiden) */
     .gallery{
       display:grid;
       grid-template-columns:repeat(12, 1fr);
-      gap:12px;
+      gap:14px;
       margin-top:12px;
     }
     .g-item{
@@ -192,26 +184,32 @@
       border-radius:var(--radius);
       overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.04);
+      background:rgba(0,0,0,.35);
     }
     @media (max-width:920px){
       .g-item{grid-column:span 12}
     }
-    .g-item img{
+    .g-frame{
       width:100%;
-      height:230px;
-      object-fit:cover;
-      display:block;
-      transform:scale(1.02);
-      transition:transform .25s ease;
+      aspect-ratio: 4 / 3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-    .g-item:hover img{transform:scale(1.08)}
+    .g-frame img{
+      width:100%;
+      height:100%;
+      object-fit:contain; /* GANZES FOTO sichtbar */
+      object-position:center;
+      display:block;
+    }
     .g-cap{
       padding:10px 12px;
       color:var(--muted);
       font-size:12px;
       border-top:1px solid rgba(255,255,255,.10);
     }
+
     footer{
       padding:22px 0 40px;
       color:var(--muted);
@@ -226,67 +224,24 @@
       border-top:1px solid var(--line);
       padding-top:14px;
     }
-    .photo-grid{
-  display:grid;
-  grid-template-columns:repeat(12, 1fr);
-  gap:14px;
-  margin-top:12px;
-}
-
-.photo{
-  grid-column:span 4;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-}
-
-@media (max-width: 920px){
-  .photo{grid-column:span 12;}
-}
-
-/* Rahmen sorgt dafür, dass das Foto komplett sichtbar bleibt */
-.photo .frame{
-  width:100%;
-  aspect-ratio: 4 / 3;        /* Box-Format */
-  background:rgba(0,0,0,.35); /* Hintergrund falls Ränder entstehen */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.photo img{
-  width:100%;
-  height:100%;
-  object-fit: contain;        /* GANZES FOTO sichtbar */
-  object-position:center;
-  display:block;
-}
-
-.photo figcaption{
-  padding:10px 12px;
-  color:rgba(255,255,255,.72);
-  font-size:12px;
-  border-top:1px solid rgba(255,255,255,.10);
-}
-
   </style>
 </head>
+
 <body>
   <!-- Topbar -->
   <div class="topbar">
     <div class="container">
       <div class="topbar-inner">
-        <a class="brand" href="index_test.html">
+        <a class="brand" href="index.html">
           <div class="logo" aria-hidden="true"></div>
           <div class="brand-text">
-            <strong>PA‑Anlage Vermietung</strong>
+            <strong>PA-Anlage Vermietung</strong>
             <span>Sound für Party & Event</span>
           </div>
         </a>
         <div class="nav">
           <a class="btn" href="#leistungen">Leistungen</a>
-          <!-- Pakete-Link entfernt, da keine Pakete mehr -->
+          <a class="btn" href="#bilder">Fotos</a>
           <a class="btn primary" href="anfrage.html">Anfrage</a>
         </div>
       </div>
@@ -298,15 +253,15 @@
     <div class="container">
       <div class="card hero-main">
         <div class="hero-bg" aria-hidden="true"></div>
-        <h1>PA‑Anlage mieten – schnell, klar, ohne Technikstress</h1>
+        <h1>PA-Anlage mieten – schnell, klar, ohne Technikstress</h1>
         <p class="lead">
-          Wähle ein Paket aus (oder nenne deine Anforderungen) und sag direkt, ob du Aufbau, Abbau oder Transport brauchst.
-          Mit Fotos siehst du, wie die Anlage aufgebaut wird.
+          Sag direkt, ob du Aufbau, Abbau oder Transport brauchst.
+          Mit den Fotos siehst du echte Setups aus der Praxis.
         </p>
         <div class="pills">
           <div class="pill">- Aufbau optional</div>
           <div class="pill">- Abbau optional</div>
-          <div div class="pill">- Transport optional</div>
+          <div class="pill">- Transport optional</div>
           <div class="pill">- DJ optional</div>
         </div>
         <div class="cta-row">
@@ -326,7 +281,7 @@
       </div>
       <div class="grid">
         <div class="feature col-4">
-          <h3>Komplett‑Set</h3>
+          <h3>Komplett-Set</h3>
           <p>Anlage + Kabel + Zubehör – du musst nur die Quelle anschließen.</p>
         </div>
         <div class="feature col-4">
@@ -349,25 +304,48 @@
     </div>
   </section>
 
-  <!-- Fotos (Galerie) -->
+  <!-- Fotos -->
   <section id="bilder">
     <div class="container">
       <div class="section-title">
         <h2>Fotos</h2>
-        <span>Einblicke in Setups</span>
+        <span>Einblicke in echte Setups</span>
       </div>
+
       <div class="gallery">
         <div class="g-item">
-          <img src="IMG_0864.jpeg" alt="Setup mit zwei Tops und Subwoofer" loading="lazy">
+          <div class="g-frame">
+            <img src="IMG_0864.jpeg" alt="PA-Setup mit zwei Tops und Subwoofer" loading="lazy">
+          </div>
           <div class="g-cap">Setup: Zwei Tops + Sub</div>
         </div>
+
         <div class="g-item">
-          <img src="IMG_2245.jpeg" alt="DJ-Setup mit Controller und Lautsprechern" loading="lazy">
-          <div class="g-cap">DJ-Setup: Controller + Anlage</div>
+          <div class="g-frame">
+            <img src="IMG_0818.jpeg" alt="DJ-Setup mit Controller und Lautsprechern" loading="lazy">
+          </div>
+          <div class="g-cap">DJ-Setup im Einsatz</div>
         </div>
+
         <div class="g-item">
-          <img src="IMG_2307.jpeg" alt="Partystimmung mit Licht und Nebel" loading="lazy">
-          <div class="g-cap">Stimmung: Licht / Party</div>
+          <div class="g-frame">
+            <img src="IMG_0853.jpeg" alt="DJ am Laptop im Einsatz" loading="lazy">
+          </div>
+          <div class="g-cap">DJ im Einsatz</div>
+        </div>
+
+        <div class="g-item">
+          <div class="g-frame">
+            <img src="IMG_2307.jpeg" alt="Partystimmung mit Licht und Effekten" loading="lazy">
+          </div>
+          <div class="g-cap">Stimmung & Licht</div>
+        </div>
+
+        <div class="g-item">
+          <div class="g-frame">
+            <img src="OBE1932C-0DE1-4BE8-8DF1-8DE4CAC54E57.png" alt="Produktfoto der PA-Anlage" loading="lazy">
+          </div>
+          <div class="g-cap">Produktfoto</div>
         </div>
       </div>
     </div>
@@ -377,7 +355,7 @@
   <footer>
     <div class="container">
       <div class="foot">
-        <div>© <script>document.write(new Date().getFullYear());</script> PA‑Anlage Vermietung</div>
+        <div>© <script>document.write(new Date().getFullYear());</script> PA-Anlage Vermietung</div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn" href="impressum.html">Impressum</a>
           <a class="btn" href="anfrage.html">Anfrage</a>
