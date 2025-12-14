@@ -108,7 +108,6 @@
       overflow:hidden;
       padding:26px;
     }
-    /* Hintergrundbild (nutzt dein echtes Foto) */
     .hero-bg{
       position:absolute;
       inset:0;
@@ -142,6 +141,7 @@
       flex-wrap:wrap;
       align-items:center;
     }
+
     section{padding:16px 0}
     .section-title{
       display:flex;
@@ -152,6 +152,7 @@
     }
     .section-title h2{margin:0; font-size:18px}
     .section-title span{color:var(--muted); font-size:12px}
+
     .grid{
       display:grid;
       grid-template-columns:repeat(12, 1fr);
@@ -159,7 +160,6 @@
     }
     .col-4{grid-column:span 4}
     .col-6{grid-column:span 6}
-    .col-12{grid-column:span 12}
     @media (max-width:920px){
       .col-4,.col-6{grid-column:span 12}
     }
@@ -172,7 +172,7 @@
     .feature h3{margin:0 0 8px; font-size:14px}
     .feature p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
 
-    /* Galerie-Stile */
+    /* Galerie */
     .gallery{
       display:grid;
       grid-template-columns:repeat(12, 1fr);
@@ -189,19 +189,16 @@
     @media (max-width:920px){
       .g-item{grid-column:span 12}
     }
-
-    /* WICHTIG: Ganzer Bildausschnitt sichtbar */
     .g-item img{
       width:100%;
       height:230px;
-      object-fit:contain;          /* GANZES FOTO sichtbar */
+      object-fit:contain;         /* GANZES FOTO sichtbar */
       object-position:center;
       display:block;
-      background:rgba(0,0,0,.25);  /* falls Ränder entstehen */
+      background:rgba(0,0,0,.25);
       transition:transform .25s ease;
     }
     .g-item:hover img{transform:scale(1.03)}
-
     .g-cap{
       padding:10px 12px;
       color:var(--muted);
@@ -223,9 +220,17 @@
       border-top:1px solid var(--line);
       padding-top:14px;
     }
+    .impressum-mini{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      line-height:1.5;
+    }
   </style>
 </head>
 <body>
+
   <!-- Topbar -->
   <div class="topbar">
     <div class="container">
@@ -254,13 +259,14 @@
         <h1>PA-Anlage mieten – schnell, klar, ohne Technikstress</h1>
         <p class="lead">
           Sag direkt, ob du Aufbau, Abbau oder Transport brauchst.
-          Mit den Fotos siehst du, wie die Anlage bei echten Events aussieht.
+          Und schau dir echte Setups an, wie es bei Events aussieht.
         </p>
         <div class="pills">
           <div class="pill">- Aufbau optional</div>
           <div class="pill">- Abbau optional</div>
           <div class="pill">- Transport optional</div>
           <div class="pill">- DJ optional</div>
+          <div class="pill">- Nebelmaschine optional</div>
         </div>
         <div class="cta-row">
           <a class="btn primary" href="anfrage.html">Jetzt Anfrage stellen</a>
@@ -275,28 +281,32 @@
     <div class="container">
       <div class="section-title">
         <h2>Leistungen</h2>
-        <span>kurz und knapp</span>
       </div>
+
       <div class="grid">
         <div class="feature col-4">
           <h3>Komplett-Set</h3>
-          <p>Anlage + Kabel + Zubehör – du musst nur die Quelle anschließen.</p>
+          <p>Anlage + Kabel + Zubehör – du schließt einfach Handy, Laptop oder DJ-Controller an und los geht’s.</p>
         </div>
+
         <div class="feature col-4">
           <h3>Aufbau / Abbau</h3>
-          <p>Ich komme vorbei, baue auf und/oder ab und pegle alles ein.</p>
+          <p>Ich komme vorbei, baue auf und/oder ab und stelle alles passend ein.</p>
         </div>
+
         <div class="feature col-4">
           <h3>Transport</h3>
           <p>Lieferung und Abholung nach Absprache.</p>
         </div>
+
         <div class="feature col-6">
-          <h3>Mikrofon & DJ</h3>
-          <p>Bei Bedarf Mikrofone und DJ-Service – sag einfach Bescheid.</p>
+          <h3>Nebelmaschine & Extras</h3>
+          <p>Auf Wunsch kannst du eine Nebelmaschine dazu mieten – für mehr Stimmung auf der Tanzfläche.</p>
         </div>
+
         <div class="feature col-6">
-          <h3>Flexibel</h3>
-          <p>Ob Hausparty, Club, Gartenfest – das Set wird an deine Anforderungen angepasst.</p>
+          <h3>Organisation & Connections</h3>
+          <p>Wenn du mehr brauchst als nur Anlage: Ich helfe dir auch beim Organisieren (z. B. DJ/Location/Extras) über meine Kontakte.</p>
         </div>
       </div>
     </div>
@@ -306,39 +316,35 @@
   <section id="bilder">
     <div class="container">
       <div class="section-title">
-        <h2>Einblicke in echte Setups</h2>
-        <span>Fotos</span>
+        <h2>Einblicke ins echte Setup</h2>
       </div>
 
       <div class="gallery">
-        <!-- 1) PRODUKTFOTO als erstes (Dateiname aus deinem Repo-Screenshot) -->
+        <!-- 1) Produktfoto (Mainfoto) -->
         <div class="g-item">
           <img src="OBE1932C-0DE1-4BE8-8DF1-8DE4AC5A457.png" alt="Produktfoto der PA-Anlage" loading="lazy">
-          <div class="g-cap">Einblicke in echte Setups</div>
+          <div class="g-cap">Einblicke ins echte Setup</div>
         </div>
 
-        <!-- 2) Zwei Tops + Sub -->
+        <!-- 2) Danach: Zwei Tops + Sub -->
         <div class="g-item">
           <img src="IMG_0864.jpeg" alt="PA-Setup" loading="lazy">
-          <div class="g-cap">Einblicke in echte Setups</div>
+          <div class="g-cap">Einblicke ins echte Setup</div>
         </div>
 
-        <!-- 3) DJ im Einsatz -->
+        <!-- 3) Danach: DJ im Einsatz -->
         <div class="g-item">
           <img src="IMG_2307.jpeg" alt="DJ im Einsatz" loading="lazy">
-          <div class="g-cap">Einblicke in echte Setups</div>
+          <div class="g-cap">Einblicke ins echte Setup</div>
         </div>
 
-        <!-- 4) Rest -->
+        <!-- 4) Danach: Rest -->
         <div class="g-item">
           <img src="IMG_0818.jpeg" alt="Setup" loading="lazy">
-          <div class="g-cap">Einblicke in echte Setups</div>
+          <div class="g-cap">Einblicke ins echte Setup</div>
         </div>
 
-        <div class="g-item">
-          <img src="IMG_0853.jpeg" alt="Setup" loading="lazy">
-          <div class="g-cap">Einblicke in echte Setups</div>
-        </div>
+        <!-- LETZTES FOTO ENTFERNT: IMG_0853.jpeg ist raus -->
       </div>
     </div>
   </section>
@@ -347,7 +353,13 @@
   <footer>
     <div class="container">
       <div class="foot">
-        <div>© <script>document.write(new Date().getFullYear());</script> PA-Anlage Vermietung</div>
+        <div class="impressum-mini">
+          <span>© <script>document.write(new Date().getFullYear());</script> PA-Anlage Vermietung</span>
+          <span>Impressum: Jonas Eckelmann</span>
+          <span>25462, Deutschland</span>
+          <span>E-Mail: yonas.event.services@gmail.com</span>
+        </div>
+
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn" href="impressum.html">Impressum</a>
           <a class="btn" href="anfrage.html">Anfrage</a>
@@ -355,5 +367,6 @@
       </div>
     </div>
   </footer>
+
 </body>
 </html>
