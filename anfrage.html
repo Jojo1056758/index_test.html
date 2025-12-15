@@ -44,6 +44,7 @@
     .req{
       color:#ff9a9a;
       margin-left:4px;
+      font-weight:700;
     }
 
     input, textarea{
@@ -67,20 +68,37 @@
       .row{grid-template-columns:1fr}
     }
 
-    .check{
-      display:flex;
-      gap:10px;
+    /* Datenschutz-Checkbox sauber/clean */
+    .consent{
       margin-top:18px;
-      font-size:13px;
-      color:var(--muted);
+      padding:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      border-radius:14px;
+      display:flex;
+      gap:12px;
       align-items:flex-start;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
     }
-    .check input{margin-top:3px}
+    .consent input{
+      width:18px;
+      height:18px;
+      margin-top:2px;
+      accent-color:#7dd3fc;
+      flex:0 0 auto;
+    }
+    .consent a{
+      color:rgba(255,255,255,.88);
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
 
     .actions{
       display:flex;
       gap:12px;
-      margin-top:22px;
+      margin-top:18px;
       flex-wrap:wrap;
     }
     button,a.btn{
@@ -106,10 +124,7 @@
       <h1>Anfrage</h1>
       <p>Felder mit <span class="req">*</span> sind Pflichtfelder.</p>
 
-      <form
-        method="POST"
-        action="https://formspree.io/f/mrbndkkw"
-      >
+      <form method="POST" action="https://formspree.io/f/mrbndkkw">
         <input type="hidden" name="_subject" value="Neue Event-Anfrage" />
         <input type="hidden" name="_redirect" value="success.html" />
 
@@ -156,11 +171,13 @@
           <textarea name="Nachricht" required placeholder="Art der Veranstaltung, Gästezahl, Indoor/Outdoor, Besonderheiten …"></textarea>
         </label>
 
-        <label class="check">
+        <!-- Clean wie vorher: eigene Zeile, schön -->
+        <label class="consent">
           <input type="checkbox" required>
           <span>
-            Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen
-            und willige in die Verarbeitung meiner Daten ein. <span class="req">*</span>
+            Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen
+            und willige in die Verarbeitung meiner Daten ein.
+            <span class="req">*</span>
           </span>
         </label>
 
