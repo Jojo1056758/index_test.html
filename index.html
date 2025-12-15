@@ -4,11 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>PA-Anlage Vermietung – EventSound, Licht & Atmosphäre</title>
-  <meta name="description" content="EventSound, Licht und Atmosphäre für dein Event – PA-Anlage, Nebelmaschine und organisierte Eventtechnik." />
+  <meta name="description" content="EventSound, Licht und Atmosphäre für dein Event – PA-Anlage, Nebelmaschine und organisierte Event-Technik." />
 
   <style>
     :root{
-      --bg:#0b0f19;
       --card:rgba(255,255,255,.06);
       --line:rgba(255,255,255,.14);
       --text:rgba(255,255,255,.92);
@@ -16,8 +15,6 @@
       --shadow:0 18px 60px rgba(0,0,0,.55);
       --radius:18px;
       --max:1100px;
-      --accent1: rgba(110,231,255,.85);
-      --accent2: rgba(167,139,250,.85);
     }
 
     *{box-sizing:border-box}
@@ -31,41 +28,40 @@
         linear-gradient(180deg,#070a12 0%,#090b14 45%,#070a12 100%);
     }
 
-    a{text-decoration:none;color:inherit}
-    .container{width:min(var(--max),calc(100% - 32px));margin:0 auto;}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max), calc(100% - 32px)); margin:0 auto;}
 
     /* Topbar */
     .topbar{
-      position:sticky;top:0;z-index:10;
+      position:sticky; top:0; z-index:20;
       backdrop-filter:blur(12px);
-      background:linear-gradient(180deg, rgba(11,15,25,.85), rgba(11,15,25,.55));
+      background:rgba(11,15,25,.75);
       border-bottom:1px solid var(--line);
     }
     .topbar-inner{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:14px 0;gap:14px;flex-wrap:wrap;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:14px 0; gap:14px; flex-wrap:wrap;
     }
-    .brand{display:flex;gap:12px;align-items:center;}
+    .brand{display:flex; gap:12px; align-items:center;}
     .logo{
-      width:40px;height:40px;border-radius:14px;
-      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      width:40px; height:40px; border-radius:14px;
+      background:linear-gradient(135deg,#6ee7ff,#a78bfa);
+      border:1px solid rgba(255,255,255,.2);
     }
     .brand-text strong{font-size:14px}
     .brand-text span{font-size:12px;color:var(--muted)}
 
-    .nav{display:flex;gap:8px;flex-wrap:wrap;}
+    .nav{display:flex; gap:8px; flex-wrap:wrap;}
     .btn{
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
       padding:10px 14px;
       border-radius:999px;
-      font-size:13px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
       font-weight:700;
-      cursor:pointer;
+      font-size:13px;
     }
     .btn.primary{
-      border-color:rgba(110,231,255,.4);
-      background:linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.18));
+      background:linear-gradient(135deg,rgba(110,231,255,.25),rgba(167,139,250,.25));
     }
 
     .card{
@@ -75,22 +71,23 @@
       box-shadow:var(--shadow);
     }
 
-    main{padding:44px 0}
-    .hero-main{position:relative;padding:26px;overflow:hidden;}
+    /* Hero */
+    main{padding:44px 0 10px}
+    .hero{padding:26px; position:relative; overflow:hidden;}
     .hero-bg{
-      position:absolute;inset:0;
+      position:absolute; inset:0;
       background:
-        linear-gradient(180deg, rgba(11,15,25,.9), rgba(11,15,25,.6)),
-        url("OBE1932C-0DE1-4BE8-8DF1-8DE4AC5A457.png");
+        linear-gradient(180deg,rgba(11,15,25,.9),rgba(11,15,25,.65)),
+        url("mainfoto.jpeg");
       background-size:cover;
       background-position:center;
     }
-    .hero-main > *{position:relative}
+    .hero > *{position:relative}
 
-    h1{margin:0 0 10px;font-size:clamp(28px,4vw,44px)}
-    .lead{color:var(--muted);font-size:15px;line-height:1.5}
+    h1{margin:0 0 12px; font-size:clamp(28px,4vw,44px)}
+    .lead{color:var(--muted); max-width:700px}
 
-    .pills{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+    .pills{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0}
     .pill{
       font-size:12px;
       padding:7px 10px;
@@ -99,13 +96,16 @@
       background:rgba(255,255,255,.06);
     }
 
-    section{padding:24px 0}
-    .section-title h2{margin:0;font-size:18px}
+    /* Leistungen */
+    section{padding:18px 0}
+    .section-title h2{margin:0 0 12px; font-size:18px}
 
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
     .col-4{grid-column:span 4}
     .col-6{grid-column:span 6}
-    @media(max-width:900px){.col-4,.col-6{grid-column:span 12}}
+    @media(max-width:900px){
+      .col-4,.col-6{grid-column:span 12}
+    }
 
     .feature{
       padding:16px;
@@ -113,34 +113,45 @@
       border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.06);
     }
-    .feature h3{margin:0 0 6px;font-size:14px}
-    .feature p{margin:0;color:var(--muted);font-size:13px}
+    .feature p{color:var(--muted); font-size:13px}
 
     /* Galerie */
-    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:12px;
+    }
     .g-hero{grid-column:span 12}
     .g-small{grid-column:span 4}
-    @media(max-width:900px){.g-hero,.g-small{grid-column:span 12}}
+    @media(max-width:900px){
+      .g-hero,.g-small{grid-column:span 12}
+    }
 
     .img-frame{
       aspect-ratio:16/9;
       background:rgba(0,0,0,.25);
-      display:flex;align-items:center;justify-content:center;
+      display:flex; align-items:center; justify-content:center;
       border-radius:var(--radius);
+      overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
     }
     .g-hero .img-frame{aspect-ratio:21/9}
 
-    img{width:100%;height:100%;object-fit:contain}
+    img{
+      width:100%; height:100%;
+      object-fit:contain;
+    }
 
     footer{
-      border-top:1px solid var(--line);
-      padding:20px 0;
+      padding:26px 0 40px;
       font-size:12px;
       color:var(--muted);
     }
-    .foot{
-      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    footer .foot{
+      display:flex; justify-content:space-between; flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top:14px;
+      gap:12px;
     }
   </style>
 </head>
@@ -168,11 +179,13 @@
 
 <main>
   <div class="container">
-    <div class="card hero-main">
+    <div class="card hero">
       <div class="hero-bg"></div>
+
       <h1>EventSound, Licht und Atmosphäre für dein Event</h1>
       <p class="lead">
-        PA-Anlage, Nebelmaschine und Zubehör vor Ort – ergänzt durch organisierte Licht- und DJ-Technik.
+        PA-Anlage, Nebelmaschine und Zubehör direkt vor Ort.
+        Zusätzlich organisiere ich bei Bedarf DJ-Equipment, Lichttechnik und weitere Event-Extras.
       </p>
 
       <div class="pills">
@@ -183,8 +196,6 @@
         <div class="pill">DJ-Equipment</div>
         <div class="pill">Lichttechnik</div>
       </div>
-
-      <a class="btn primary" href="anfrage.html">Jetzt Anfrage stellen</a>
     </div>
   </div>
 </main>
@@ -193,11 +204,26 @@
   <div class="container">
     <div class="section-title"><h2>Leistungen</h2></div>
     <div class="grid">
-      <div class="feature col-4"><h3>PA & Sound</h3><p>PA-Anlage, Stative und Zubehör – abgestimmt auf deine Veranstaltung.</p></div>
-      <div class="feature col-4"><h3>Nebelmaschine</h3><p>Atmosphärischer Nebel für Tanzfläche & Lichtwirkung.</p></div>
-      <div class="feature col-4"><h3>Aufbau & Abbau</h3><p>Fachgerechter Aufbau, kurze Einweisung und sauberer Abbau.</p></div>
-      <div class="feature col-6"><h3>Transport</h3><p>Lieferung und Abholung nach Absprache.</p></div>
-      <div class="feature col-6"><h3>Organisation</h3><p>Organisation zusätzlicher Technik und Unterstützung beim Gesamtsetup.</p></div>
+      <div class="feature col-4">
+        <h3>PA & Sound</h3>
+        <p>PA-Anlage, Stative, Kabel und Zubehör – abgestimmt auf deine Veranstaltung.</p>
+      </div>
+      <div class="feature col-4">
+        <h3>Nebelmaschine</h3>
+        <p>Für Atmosphäre auf der Tanzfläche, passend eingesetzt.</p>
+      </div>
+      <div class="feature col-4">
+        <h3>Aufbau & Abbau</h3>
+        <p>Ich baue alles auf, erkläre kurz die Bedienung und baue anschließend wieder ab.</p>
+      </div>
+      <div class="feature col-6">
+        <h3>Transport</h3>
+        <p>Lieferung und Abholung nach Absprache.</p>
+      </div>
+      <div class="feature col-6">
+        <h3>Organisation</h3>
+        <p>Organisation zusätzlicher Technik und Unterstützung beim Gesamtsetup.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -205,8 +231,14 @@
 <section id="bilder">
   <div class="container">
     <div class="section-title"><h2>Einblicke ins echte Setup</h2></div>
+
     <div class="gallery">
-      <div class="g-hero"><div class="img-frame"><img src="OBE1932C-0DE1-4BE8-8DF1-8DE4AC5A457.png"></div></div>
+      <div class="g-hero">
+        <div class="img-frame">
+          <img src="mainfoto.jpeg" alt="PA-Anlage Hauptfoto">
+        </div>
+      </div>
+
       <div class="g-small"><div class="img-frame"><img src="IMG_0864.jpeg"></div></div>
       <div class="g-small"><div class="img-frame"><img src="IMG_0818.jpeg"></div></div>
       <div class="g-small"><div class="img-frame"><img src="IMG_0853.jpeg"></div></div>
@@ -215,11 +247,17 @@
 </section>
 
 <footer>
-  <div class="container foot">
-    <div>© <script>document.write(new Date().getFullYear())</script> PA-Anlage Vermietung · yonas.event.services@gmail.com</div>
-    <div>
-      <a class="btn" href="impressum.html">Impressum</a>
-      <a class="btn" href="datenschutz.html">Datenschutz</a>
+  <div class="container">
+    <div class="foot">
+      <div>
+        © <script>document.write(new Date().getFullYear());</script> PA-Anlage Vermietung ·
+        yonas.event.services@gmail.com
+      </div>
+      <div>
+        <a class="btn" href="impressum.html">Impressum</a>
+        <a class="btn" href="datenschutz.html">Datenschutz</a>
+        <a class="btn" href="anfrage.html">Anfrage</a>
+      </div>
     </div>
   </div>
 </footer>
