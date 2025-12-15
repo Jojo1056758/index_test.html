@@ -3,8 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>PA-Anlage Vermietung – EventSound, Licht & Atmosphäre</title>
   <meta name="description" content="EventSound, Licht und Atmosphäre für dein Event – PA-Anlage, Nebelmaschine und organisierte Event-Technik." />
+
+  <!-- Plausible Analytics (privacy-friendly) -->
+  <script async src="https://plausible.io/js/pa-WQyN64T12TYpr5uxvNVIp.js"></script>
+  <script>
+    window.plausible = window.plausible || function () {
+      (plausible.q = plausible.q || []).push(arguments)
+    };
+    plausible.init = plausible.init || function (i) {
+      plausible.o = i || {}
+    };
+    plausible.init();
+  </script>
 
   <style>
     :root{
@@ -85,7 +98,7 @@
     .hero > *{position:relative}
 
     h1{margin:0 0 12px; font-size:clamp(28px,4vw,44px)}
-    .lead{color:var(--muted); max-width:700px}
+    .lead{color:var(--muted); max-width:720px}
 
     .pills{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0}
     .pill{
@@ -96,7 +109,6 @@
       background:rgba(255,255,255,.06);
     }
 
-    /* Leistungen */
     section{padding:18px 0}
     .section-title h2{margin:0 0 12px; font-size:18px}
 
@@ -137,10 +149,7 @@
     }
     .g-hero .img-frame{aspect-ratio:21/9}
 
-    img{
-      width:100%; height:100%;
-      object-fit:contain;
-    }
+    img{width:100%; height:100%; object-fit:contain}
 
     footer{
       padding:26px 0 40px;
@@ -185,7 +194,7 @@
       <h1>EventSound, Licht und Atmosphäre für dein Event</h1>
       <p class="lead">
         PA-Anlage, Nebelmaschine und Zubehör direkt vor Ort.
-        Zusätzlich organisiere ich bei Bedarf DJ-Equipment, Lichttechnik und weitere Event-Extras.
+        Zusätzlich organisiere ich bei Bedarf DJ-Equipment, Lichttechnik und weitere Event-Technik.
       </p>
 
       <div class="pills">
@@ -210,7 +219,7 @@
       </div>
       <div class="feature col-4">
         <h3>Nebelmaschine</h3>
-        <p>Für Atmosphäre auf der Tanzfläche, passend eingesetzt.</p>
+        <p>Für zusätzliche Atmosphäre auf der Tanzfläche.</p>
       </div>
       <div class="feature col-4">
         <h3>Aufbau & Abbau</h3>
@@ -231,17 +240,11 @@
 <section id="bilder">
   <div class="container">
     <div class="section-title"><h2>Einblicke ins echte Setup</h2></div>
-
     <div class="gallery">
-      <div class="g-hero">
-        <div class="img-frame">
-          <img src="mainfoto.jpeg" alt="PA-Anlage Hauptfoto">
-        </div>
-      </div>
-
-      <div class="g-small"><div class="img-frame"><img src="IMG_0864.jpeg"></div></div>
-      <div class="g-small"><div class="img-frame"><img src="IMG_0818.jpeg"></div></div>
-      <div class="g-small"><div class="img-frame"><img src="IMG_0853.jpeg"></div></div>
+      <div class="g-hero"><div class="img-frame"><img src="mainfoto.jpeg" alt=""></div></div>
+      <div class="g-small"><div class="img-frame"><img src="IMG_0864.jpeg" alt=""></div></div>
+      <div class="g-small"><div class="img-frame"><img src="IMG_0818.jpeg" alt=""></div></div>
+      <div class="g-small"><div class="img-frame"><img src="IMG_0853.jpeg" alt=""></div></div>
     </div>
   </div>
 </section>
@@ -249,10 +252,7 @@
 <footer>
   <div class="container">
     <div class="foot">
-      <div>
-        © <script>document.write(new Date().getFullYear());</script> PA-Anlage Vermietung ·
-        yonas.event.services@gmail.com
-      </div>
+      <div>© <script>document.write(new Date().getFullYear());</script> PA-Anlage Vermietung · yonas.event.services@gmail.com</div>
       <div>
         <a class="btn" href="impressum.html">Impressum</a>
         <a class="btn" href="datenschutz.html">Datenschutz</a>
