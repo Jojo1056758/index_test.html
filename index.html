@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PA-Anlage Vermietung</title>
-  <meta name="description" content="PA-Anlage mieten für Hausparty, Geburtstag oder Event." />
+  <title>Event-Service – Sound, Licht & Atmosphäre</title>
+  <meta name="description" content="Event-Service: PA-Anlage, Nebel & Zubehör – plus Organisation von DJ-Equipment und Lichttechnik. Für Party & Event." />
+
   <style>
     :root{
       --bg:#0b0f19;
@@ -29,10 +30,8 @@
       overflow-x:hidden;
     }
     a{color:inherit;text-decoration:none}
-    .container{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-    }
+    .container{ width:min(var(--max), calc(100% - 32px)); margin:0 auto; }
+
     .topbar{
       position:sticky; top:0; z-index:20;
       backdrop-filter:blur(12px);
@@ -40,22 +39,12 @@
       border-bottom:1px solid var(--line);
     }
     .topbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
-      flex-wrap:wrap;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:14px; flex-wrap:wrap;
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
+    .brand{ display:flex; align-items:center; gap:12px; }
     .logo{
-      width:40px;
-      height:40px;
-      border-radius:14px;
+      width:40px; height:40px; border-radius:14px;
       background:
         radial-gradient(circle at 35% 35%, rgba(255,255,255,.35), transparent 40%),
         linear-gradient(135deg, rgba(110,231,255,.85), rgba(167,139,250,.85));
@@ -65,12 +54,8 @@
     .brand-text{display:grid;line-height:1.15}
     .brand-text strong{font-size:14px}
     .brand-text span{font-size:12px;color:var(--muted)}
-    .nav{
-      display:flex;
-      gap:8px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
+
+    .nav{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
     .btn{
       appearance:none;
       border:1px solid rgba(255,255,255,.14);
@@ -96,21 +81,18 @@
       border:1px solid rgba(110,231,255,.40);
       background:linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.18));
     }
+
     .card{
       background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
     }
+
     main{padding:44px 0 10px}
-    .hero-main{
-      position:relative;
-      overflow:hidden;
-      padding:26px;
-    }
+    .hero-main{ position:relative; overflow:hidden; padding:26px; }
     .hero-bg{
-      position:absolute;
-      inset:0;
+      position:absolute; inset:0;
       background-image:
         linear-gradient(180deg, rgba(11,15,25,.92), rgba(11,15,25,.62)),
         url("IMG_0818.jpeg");
@@ -121,12 +103,8 @@
     .hero-main > *{position:relative; z-index:1}
     h1{margin:0 0 10px; font-size:clamp(28px, 4vw, 44px); line-height:1.05}
     .lead{margin:0 0 16px; color:var(--muted); font-size:15px; line-height:1.5}
-    .pills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin:14px 0 18px;
-    }
+
+    .pills{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px; }
     .pill{
       font-size:12px;
       color:rgba(255,255,255,.78);
@@ -135,34 +113,18 @@
       padding:7px 10px;
       border-radius:999px;
     }
-    .cta-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
+    .cta-row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
 
     section{padding:16px 0}
-    .section-title{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      margin:6px 0 10px;
-    }
+    .section-title{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:6px 0 10px; }
     .section-title h2{margin:0; font-size:18px}
-    .section-title span{color:var(--muted); font-size:12px}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(12, 1fr);
-      gap:14px;
-    }
+    .grid{ display:grid; grid-template-columns:repeat(12, 1fr); gap:14px; }
     .col-4{grid-column:span 4}
     .col-6{grid-column:span 6}
-    @media (max-width:920px){
-      .col-4,.col-6{grid-column:span 12}
-    }
+    .col-12{grid-column:span 12}
+    @media (max-width:920px){ .col-4,.col-6{grid-column:span 12} }
+
     .feature{
       padding:16px;
       border-radius:var(--radius);
@@ -172,7 +134,7 @@
     .feature h3{margin:0 0 8px; font-size:14px}
     .feature p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
 
-    /* Galerie */
+    /* Galerie: NUR Bilder, keine Beschriftung */
     .gallery{
       display:grid;
       grid-template-columns:repeat(12, 1fr);
@@ -184,89 +146,66 @@
       border-radius:var(--radius);
       overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.04);
+      background:rgba(0,0,0,.28);
     }
-    @media (max-width:920px){
-      .g-item{grid-column:span 12}
-    }
+    @media (max-width:920px){ .g-item{grid-column:span 12} }
+
     .g-item img{
       width:100%;
-      height:230px;
-      object-fit:contain;         /* GANZES FOTO sichtbar */
+      aspect-ratio: 4 / 3;
+      height:auto;
+      object-fit:contain;      /* GANZES FOTO sichtbar */
       object-position:center;
       display:block;
-      background:rgba(0,0,0,.25);
-      transition:transform .25s ease;
-    }
-    .g-item:hover img{transform:scale(1.03)}
-    .g-cap{
-      padding:10px 12px;
-      color:var(--muted);
-      font-size:12px;
-      border-top:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.30);
     }
 
-    footer{
-      padding:22px 0 40px;
-      color:var(--muted);
-      font-size:12px;
-    }
+    footer{ padding:22px 0 40px; color:var(--muted); font-size:12px; }
     footer .foot{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;
       border-top:1px solid var(--line);
       padding-top:14px;
     }
-    .impressum-mini{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      line-height:1.5;
-    }
   </style>
 </head>
-<body>
 
-  <!-- Topbar -->
+<body>
   <div class="topbar">
     <div class="container">
       <div class="topbar-inner">
         <a class="brand" href="index.html">
           <div class="logo" aria-hidden="true"></div>
           <div class="brand-text">
-            <strong>PA-Anlage Vermietung</strong>
-            <span>Sound für Party & Event</span>
+            <strong>Event-Service</strong>
+            <span>Sound, Licht & Atmosphäre</span>
           </div>
         </a>
         <div class="nav">
           <a class="btn" href="#leistungen">Leistungen</a>
           <a class="btn" href="#bilder">Fotos</a>
           <a class="btn primary" href="anfrage.html">Anfrage</a>
+          <a class="btn" href="impressum.html">Impressum</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Hero -->
   <main>
     <div class="container">
       <div class="card hero-main">
         <div class="hero-bg" aria-hidden="true"></div>
-        <h1>PA-Anlage mieten – schnell, klar, ohne Technikstress</h1>
+        <h1>Sound & Event-Technik – easy organisiert, sauber umgesetzt</h1>
         <p class="lead">
-          Sag direkt, ob du Aufbau, Abbau oder Transport brauchst.
-          Und schau dir echte Setups an, wie es bei Events aussieht.
+          Ich bringe die Basics direkt mit (PA, Zubehör, Nebel) – und organisiere auf Wunsch auch DJ-Equipment, Lichttechnik
+          und alles, was dein Setup komplett macht. Für Hausparty, Geburtstag oder Event.
         </p>
         <div class="pills">
-          <div class="pill">- Aufbau optional</div>
-          <div class="pill">- Abbau optional</div>
-          <div class="pill">- Transport optional</div>
-          <div class="pill">- DJ optional</div>
-          <div class="pill">- Nebelmaschine optional</div>
+          <div class="pill">Aufbau optional</div>
+          <div class="pill">Abbau optional</div>
+          <div class="pill">Transport optional</div>
+          <div class="pill">Nebelmaschine optional</div>
+          <div class="pill">Lichttechnik organisierbar</div>
+          <div class="pill">DJ-Equipment organisierbar</div>
         </div>
         <div class="cta-row">
           <a class="btn primary" href="anfrage.html">Jetzt Anfrage stellen</a>
@@ -276,7 +215,6 @@
     </div>
   </main>
 
-  <!-- Leistungen -->
   <section id="leistungen">
     <div class="container">
       <div class="section-title">
@@ -285,34 +223,33 @@
 
       <div class="grid">
         <div class="feature col-4">
-          <h3>Komplett-Set</h3>
-          <p>Anlage + Kabel + Zubehör – du schließt einfach Handy, Laptop oder DJ-Controller an und los geht’s.</p>
+          <h3>PA & Sound</h3>
+          <p>PA-Anlage inkl. Stative, Kabel & Zubehör – abgestimmt auf deine Veranstaltung.</p>
+        </div>
+
+        <div class="feature col-4">
+          <h3>Nebelmaschine</h3>
+          <p>Optional dazu – für mehr Atmosphäre auf der Tanzfläche (nach Absprache mit Location).</p>
         </div>
 
         <div class="feature col-4">
           <h3>Aufbau / Abbau</h3>
-          <p>Ich komme vorbei, baue auf und/oder ab und stelle alles passend ein.</p>
+          <p>Ich baue auf, erkläre kurz die Bedienung und stelle alles passend ein – ohne Technikstress.</p>
         </div>
 
-        <div class="feature col-4">
+        <div class="feature col-6">
           <h3>Transport</h3>
-          <p>Lieferung und Abholung nach Absprache.</p>
+          <p>Lieferung & Abholung nach Absprache – je nach Entfernung und Aufwand.</p>
         </div>
 
         <div class="feature col-6">
-          <h3>Nebelmaschine & Extras</h3>
-          <p>Auf Wunsch kannst du eine Nebelmaschine dazu mieten – für mehr Stimmung auf der Tanzfläche.</p>
-        </div>
-
-        <div class="feature col-6">
-          <h3>Organisation & Connections</h3>
-          <p>Wenn du mehr brauchst als nur Anlage: Ich helfe dir auch beim Organisieren (z. B. DJ/Location/Extras) über meine Kontakte.</p>
+          <h3>Organisation (Licht, DJ-Equipment, Extras)</h3>
+          <p>Wenn du mehr brauchst als nur Sound: Ich organisiere passende Technik und helfe beim Gesamt-Setup über mein Netzwerk.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Fotos -->
   <section id="bilder">
     <div class="container">
       <div class="section-title">
@@ -320,46 +257,21 @@
       </div>
 
       <div class="gallery">
-        <!-- 1) Produktfoto (Mainfoto) -->
-        <div class="g-item">
-          <img src="OBE1932C-0DE1-4BE8-8DF1-8DE4AC5A457.png" alt="Produktfoto der PA-Anlage" loading="lazy">
-          <div class="g-cap">Einblicke ins echte Setup</div>
-        </div>
-
-        <!-- 2) Danach: Zwei Tops + Sub -->
-        <div class="g-item">
-          <img src="IMG_0864.jpeg" alt="PA-Setup" loading="lazy">
-          <div class="g-cap">Einblicke ins echte Setup</div>
-        </div>
-
-        <!-- 3) Danach: DJ im Einsatz -->
-        <div class="g-item">
-          <img src="IMG_2307.jpeg" alt="DJ im Einsatz" loading="lazy">
-          <div class="g-cap">Einblicke ins echte Setup</div>
-        </div>
-
-        <!-- 4) Danach: Rest -->
-        <div class="g-item">
-          <img src="IMG_0818.jpeg" alt="Setup" loading="lazy">
-          <div class="g-cap">Einblicke ins echte Setup</div>
-        </div>
-
-        <!-- LETZTES FOTO ENTFERNT: IMG_0853.jpeg ist raus -->
+        <div class="g-item"><img src="OBE1932C-0DE1-4BE8-8DF1-8DE4AC5A457.png" alt="Produktfoto" loading="lazy"></div>
+        <div class="g-item"><img src="IMG_0864.jpeg" alt="Setup Foto" loading="lazy"></div>
+        <div class="g-item"><img src="IMG_0818.jpeg" alt="Setup Foto" loading="lazy"></div>
+        <div class="g-item"><img src="IMG_2307.jpeg" alt="DJ Foto" loading="lazy"></div>
+        <!-- Wenn du ein Bild entfernen willst: einfach die entsprechende Zeile löschen -->
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="foot">
-        <div class="impressum-mini">
-          <span>© <script>document.write(new Date().getFullYear());</script> PA-Anlage Vermietung</span>
-          <span>Impressum: Jonas Eckelmann</span>
-          <span>25462, Deutschland</span>
-          <span>E-Mail: yonas.event.services@gmail.com</span>
+        <div>
+          © <script>document.write(new Date().getFullYear());</script> Event-Service · Jonas Eckelmann · 25462 Deutschland · yonas.event.services@gmail.com
         </div>
-
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn" href="impressum.html">Impressum</a>
           <a class="btn" href="anfrage.html">Anfrage</a>
@@ -367,6 +279,5 @@
       </div>
     </div>
   </footer>
-
 </body>
 </html>
