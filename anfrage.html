@@ -13,11 +13,8 @@
       --text:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.70);
       --radius:18px;
-      --accent:#6ee7ff;
     }
-
     *{box-sizing:border-box}
-
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -25,128 +22,104 @@
       color:var(--text);
       min-height:100vh;
     }
+    a{color:inherit}
 
     .container{
       max-width:900px;
       margin:0 auto;
-      padding:28px 16px;
+      padding:24px 16px 40px;
     }
-
     .card{
       background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:22px;
+      padding:18px;
     }
-
-    h1{
-      margin:0 0 8px;
-      font-size:26px;
-    }
-
-    p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.5;
-    }
+    h1{margin:0 0 10px}
+    p{margin:0 0 14px; color:var(--muted); line-height:1.6}
 
     label{
       display:block;
       font-size:12px;
-      margin-top:14px;
+      margin-top:12px;
+      color:rgba(255,255,255,.78);
     }
-
     input, textarea{
       width:100%;
-      padding:12px;
+      padding:11px;
       margin-top:6px;
-      border-radius:14px;
+      border-radius:12px;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.25);
+      background:rgba(0,0,0,.20);
       color:var(--text);
-      font-size:14px;
-    }
-
-    input:focus, textarea:focus{
       outline:none;
-      border-color:var(--accent);
     }
-
-    textarea{
-      min-height:110px;
-      resize:vertical;
+    input:focus, textarea:focus{
+      border-color:rgba(110,231,255,.45);
+      box-shadow:0 0 0 3px rgba(110,231,255,.12);
     }
+    textarea{min-height:110px}
 
     .row{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:14px;
+      gap:12px;
     }
-
-    @media(max-width:720px){
+    @media(max-width:700px){
       .row{grid-template-columns:1fr}
     }
 
-    /* Datenschutz / Einwilligung */
+    /* Einwilligungs-Box (schöner) */
     .consent{
-      display:flex;
-      gap:14px;
-      margin-top:20px;
-      padding:16px;
+      margin-top:16px;
+      padding:14px;
       border-radius:16px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(0,0,0,.28);
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.18);
+      display:flex;
+      gap:12px;
       align-items:flex-start;
     }
-
     .consent input{
-      margin-top:4px;
       width:18px;
       height:18px;
-      accent-color:var(--accent);
+      margin-top:2px;
+      accent-color: #6ee7ff;
       cursor:pointer;
     }
-
-    .consent-text{
+    .consent strong{
+      display:block;
       font-size:13px;
-      line-height:1.5;
-      color:var(--muted);
+      margin-bottom:4px;
+      color:rgba(255,255,255,.92);
     }
-
-    .consent-text strong{
-      color:var(--text);
-      font-weight:600;
+    .consent span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.55;
     }
 
     .actions{
       display:flex;
-      gap:12px;
-      margin-top:22px;
+      gap:10px;
+      margin-top:18px;
       flex-wrap:wrap;
     }
-
     button, a.btn{
       border-radius:999px;
-      padding:11px 16px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.10);
+      padding:10px 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.08);
       color:var(--text);
       cursor:pointer;
       text-decoration:none;
       font-weight:700;
       font-size:13px;
-      transition:background .15s ease, transform .15s ease;
     }
-
-    button:hover, a.btn:hover{
-      background:rgba(255,255,255,.16);
-      transform:translateY(-1px);
-    }
-
     button{
-      background:linear-gradient(135deg, rgba(110,231,255,.25), rgba(167,139,250,.18));
-      border-color:rgba(110,231,255,.45);
+      border-color:rgba(110,231,255,.35);
+      background:linear-gradient(135deg, rgba(110,231,255,.20), rgba(167,139,250,.16));
     }
   </style>
 </head>
@@ -155,15 +128,9 @@
   <div class="container">
     <div class="card">
       <h1>Anfrage</h1>
-      <p>
-        Fülle das Formular aus – ich melde mich zeitnah per E-Mail bei dir zurück,
-        um alle Details zu klären.
-      </p>
+      <p>Fülle das Formular aus – du bekommst eine Rückmeldung per E-Mail.</p>
 
-      <form
-        method="POST"
-        action="https://formspree.io/f/mrbndkkw"
-      >
+      <form method="POST" action="https://formspree.io/f/mrbndkkw">
         <input type="hidden" name="_subject" value="Neue Event-Anfrage" />
         <input type="hidden" name="_redirect" value="success.html" />
 
@@ -202,27 +169,29 @@
 
         <label>
           Ort der Veranstaltung
-          <input name="Ort" required placeholder="Adresse oder Location-Name">
+          <input name="Ort der Veranstaltung" required placeholder="Adresse oder Location-Name">
         </label>
 
         <label>
           Weitere Infos
-          <textarea name="Nachricht" placeholder="Indoor / Outdoor, Gästezahl, Technik-Wünsche, Besonderheiten …"></textarea>
+          <textarea name="Nachricht" placeholder="Indoor/Outdoor, Gästezahl, Musikrichtung, Technik-Wünsche …"></textarea>
         </label>
 
-        <!-- Datenschutz / Einwilligung -->
         <label class="consent">
           <input type="checkbox" required>
-          <div class="consent-text">
-            <strong>Einwilligung zur Datenverarbeitung</strong><br>
-            Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage
-            gespeichert und verarbeitet werden. Eine Weitergabe an Dritte erfolgt nicht.
+          <div>
+            <strong>Einwilligung zur Datenverarbeitung</strong>
+            <span>
+              Ich willige ein, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden.
+              Weitere Informationen stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.
+            </span>
           </div>
         </label>
 
         <div class="actions">
           <button type="submit">Anfrage senden</button>
-          <a class="btn" href="index.html">Zurück zur Startseite</a>
+          <a class="btn" href="index.html">Zurück</a>
+          <a class="btn" href="datenschutz.html">Datenschutz</a>
         </div>
       </form>
     </div>
