@@ -3,24 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
   <title>PA-Anlage Vermietung – EventSound, Licht & Atmosphäre</title>
-  <meta name="description" content="EventSound, Licht und Atmosphäre für dein Event – PA-Anlage, Nebelmaschine und organisierte Event-Technik." />
+  <meta name="description" content="EventSound, Licht und Atmosphäre für dein Event – mit PA, Nebelmaschine und organisierter Event-Technik." />
 
-  <!-- Plausible Analytics (privacy-friendly) -->
+  <!-- Plausible Analytics -->
   <script async src="https://plausible.io/js/pa-WQyN64T12TYpr5uxvNVIp.js"></script>
-  <script>
-    window.plausible = window.plausible || function () {
-      (plausible.q = plausible.q || []).push(arguments)
-    };
-    plausible.init = plausible.init || function (i) {
-      plausible.o = i || {}
-    };
-    plausible.init();
-  </script>
 
   <style>
     :root{
+      --bg:#0b0f19;
       --card:rgba(255,255,255,.06);
       --line:rgba(255,255,255,.14);
       --text:rgba(255,255,255,.92);
@@ -28,9 +19,13 @@
       --shadow:0 18px 60px rgba(0,0,0,.55);
       --radius:18px;
       --max:1100px;
+
+      --accent1: rgba(110,231,255,.85);
+      --accent2: rgba(167,139,250,.85);
     }
 
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -39,6 +34,7 @@
         radial-gradient(900px 600px at 20% 0%, rgba(167,139,250,0.22), transparent 60%),
         radial-gradient(900px 600px at 90% 20%, rgba(110,231,255,0.16), transparent 60%),
         linear-gradient(180deg,#070a12 0%,#090b14 45%,#070a12 100%);
+      overflow-x:hidden;
     }
 
     a{color:inherit;text-decoration:none}
@@ -48,35 +44,67 @@
     .topbar{
       position:sticky; top:0; z-index:20;
       backdrop-filter:blur(12px);
-      background:rgba(11,15,25,.75);
+      background:linear-gradient(180deg, rgba(11,15,25,.85), rgba(11,15,25,.55));
       border-bottom:1px solid var(--line);
     }
     .topbar-inner{
-      display:flex; justify-content:space-between; align-items:center;
+      display:flex; align-items:center; justify-content:space-between;
       padding:14px 0; gap:14px; flex-wrap:wrap;
     }
-    .brand{display:flex; gap:12px; align-items:center;}
+    .brand{display:flex; align-items:center; gap:12px;}
+
+    /* ✅ FIX: Logo zeigt jetzt YES statt „leerer Klotz“ */
     .logo{
-      width:40px; height:40px; border-radius:14px;
-      background:linear-gradient(135deg,#6ee7ff,#a78bfa);
-      border:1px solid rgba(255,255,255,.2);
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,.35), transparent 40%),
+        linear-gradient(135deg, var(--accent1), var(--accent2));
+      box-shadow:0 10px 30px rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      letter-spacing:.5px;
+      color:rgba(10,14,22,.90);
+      font-size:14px;
+      user-select:none;
     }
+
+    .brand-text{display:grid;line-height:1.15}
     .brand-text strong{font-size:14px}
     .brand-text span{font-size:12px;color:var(--muted)}
 
-    .nav{display:flex; gap:8px; flex-wrap:wrap;}
+    .nav{display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
     .btn{
-      padding:10px 14px;
-      border-radius:999px;
+      appearance:none;
       border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:999px;
+      cursor:pointer;
       font-weight:700;
       font-size:13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+      transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.20);
     }
     .btn.primary{
-      background:linear-gradient(135deg,rgba(110,231,255,.25),rgba(167,139,250,.25));
+      border:1px solid rgba(110,231,255,.40);
+      background:linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.18));
     }
 
+    /* Cards */
     .card{
       background:var(--card);
       border:1px solid var(--line);
@@ -84,39 +112,46 @@
       box-shadow:var(--shadow);
     }
 
-    /* Hero */
     main{padding:44px 0 10px}
-    .hero{padding:26px; position:relative; overflow:hidden;}
+    .hero-main{position:relative; overflow:hidden; padding:26px;}
     .hero-bg{
-      position:absolute; inset:0;
-      background:
-        linear-gradient(180deg,rgba(11,15,25,.9),rgba(11,15,25,.65)),
+      position:absolute; inset:0; z-index:0;
+      background-image:
+        linear-gradient(180deg, rgba(11,15,25,.90), rgba(11,15,25,.65)),
         url("mainfoto.jpeg");
       background-size:cover;
       background-position:center;
+      filter:saturate(1.05);
     }
-    .hero > *{position:relative}
+    .hero-main > *{position:relative; z-index:1}
 
-    h1{margin:0 0 12px; font-size:clamp(28px,4vw,44px)}
-    .lead{color:var(--muted); max-width:720px}
+    h1{margin:0 0 10px; font-size:clamp(28px, 4vw, 44px); line-height:1.05}
+    .lead{margin:0 0 16px; color:var(--muted); font-size:15px; line-height:1.5}
 
-    .pills{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0}
+    .pills{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px;}
     .pill{
       font-size:12px;
-      padding:7px 10px;
-      border-radius:999px;
+      color:rgba(255,255,255,.78);
       border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.06);
+      padding:7px 10px;
+      border-radius:999px;
     }
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
 
-    section{padding:18px 0}
-    .section-title h2{margin:0 0 12px; font-size:18px}
+    section{padding:16px 0}
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap:12px; margin:6px 0 10px;
+    }
+    .section-title h2{margin:0; font-size:18px}
 
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
+    .grid{display:grid; grid-template-columns:repeat(12, 1fr); gap:14px;}
     .col-4{grid-column:span 4}
     .col-6{grid-column:span 6}
-    @media(max-width:900px){
-      .col-4,.col-6{grid-column:span 12}
+    .col-12{grid-column:span 12}
+    @media (max-width:920px){
+      .col-4,.col-6,.col-12{grid-column:span 12}
     }
 
     .feature{
@@ -125,142 +160,202 @@
       border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.06);
     }
-    .feature p{color:var(--muted); font-size:13px}
+    .feature h3{margin:0 0 8px; font-size:14px}
+    .feature p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
 
     /* Galerie */
     .gallery{
       display:grid;
-      grid-template-columns:repeat(12,1fr);
+      grid-template-columns:repeat(12, 1fr);
       gap:12px;
+      margin-top:12px;
     }
-    .g-hero{grid-column:span 12}
-    .g-small{grid-column:span 4}
-    @media(max-width:900px){
+    .g-item{
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      box-shadow:0 18px 60px rgba(0,0,0,.35);
+    }
+    .g-hero{grid-column:span 12;}
+    .g-small{grid-column:span 4;}
+    @media (max-width:920px){
       .g-hero,.g-small{grid-column:span 12}
     }
 
     .img-frame{
-      aspect-ratio:16/9;
+      width:100%;
+      aspect-ratio: 16 / 9;
       background:rgba(0,0,0,.25);
-      display:flex; align-items:center; justify-content:center;
-      border-radius:var(--radius);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-    .g-hero .img-frame{aspect-ratio:21/9}
+    .g-hero .img-frame{aspect-ratio: 21 / 9;}
+    @media (max-width:920px){
+      .g-hero .img-frame{aspect-ratio: 16 / 9;}
+    }
 
-    img{width:100%; height:100%; object-fit:contain}
+    .gallery img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+      transform:scale(1.01);
+      transition:transform .25s ease;
+    }
+    .g-item:hover img{transform:scale(1.03)}
 
     footer{
-      padding:26px 0 40px;
-      font-size:12px;
+      padding:22px 0 40px;
       color:var(--muted);
+      font-size:12px;
     }
     footer .foot{
-      display:flex; justify-content:space-between; flex-wrap:wrap;
+      display:flex; gap:12px; flex-wrap:wrap;
+      align-items:center; justify-content:space-between;
       border-top:1px solid var(--line);
       padding-top:14px;
-      gap:12px;
     }
+    .foot-left{display:flex; gap:10px; flex-wrap:wrap; align-items:center; line-height:1.5;}
   </style>
 </head>
 
 <body>
-
-<div class="topbar">
-  <div class="container">
-    <div class="topbar-inner">
-      <div class="brand">
-        <div class="logo"></div>
-        <div class="brand-text">
-          <strong>PA-Anlage Vermietung</strong>
-          <span>EventSound · Licht · Atmosphäre</span>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="brand" href="index.html">
+          <div class="logo" aria-hidden="true">YES</div>
+          <div class="brand-text">
+            <!-- ✅ FIX: Brand-Text -->
+            <strong>Jonas Event Services</strong>
+            <span>EventSound · Nebel · Technik</span>
+          </div>
+        </a>
+        <div class="nav">
+          <a class="btn" href="#leistungen">Leistungen</a>
+          <a class="btn" href="#bilder">Fotos</a>
+          <a class="btn primary" href="anfrage.html">Anfrage</a>
         </div>
       </div>
-      <div class="nav">
-        <a class="btn" href="#leistungen">Leistungen</a>
-        <a class="btn" href="#bilder">Fotos</a>
-        <a class="btn primary" href="anfrage.html">Anfrage</a>
-      </div>
     </div>
   </div>
-</div>
 
-<main>
-  <div class="container">
-    <div class="card hero">
-      <div class="hero-bg"></div>
+  <main>
+    <div class="container">
+      <div class="card hero-main">
+        <div class="hero-bg" aria-hidden="true"></div>
 
-      <h1>EventSound, Licht und Atmosphäre für dein Event</h1>
-      <p class="lead">
-        PA-Anlage, Nebelmaschine und Zubehör direkt vor Ort.
-        Zusätzlich organisiere ich bei Bedarf DJ-Equipment, Lichttechnik und weitere Event-Technik.
-      </p>
+        <h1>EventSound, Licht und Atmosphäre für dein Event</h1>
 
-      <div class="pills">
-        <div class="pill">Aufbau</div>
-        <div class="pill">Abbau</div>
-        <div class="pill">Transport</div>
-        <div class="pill">Nebelmaschine</div>
-        <div class="pill">DJ-Equipment</div>
-        <div class="pill">Lichttechnik</div>
+        <p class="lead">
+          PA-Anlage, Nebelmaschine & Zubehör direkt vor Ort.
+          Zusätzlich organisiere ich bei Bedarf DJ-Equipment, Lichttechnik und weitere Event-Technik.
+        </p>
+
+        <div class="pills">
+          <div class="pill">Aufbau</div>
+          <div class="pill">Abbau</div>
+          <div class="pill">Transport</div>
+          <div class="pill">Nebelmaschine</div>
+          <div class="pill">DJ-Equipment</div>
+          <div class="pill">Lichttechnik</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn primary" href="anfrage.html">Jetzt Anfrage stellen</a>
+          <a class="btn" href="#bilder">Fotos ansehen</a>
+        </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 
-<section id="leistungen">
-  <div class="container">
-    <div class="section-title"><h2>Leistungen</h2></div>
-    <div class="grid">
-      <div class="feature col-4">
-        <h3>PA & Sound</h3>
-        <p>PA-Anlage, Stative, Kabel und Zubehör – abgestimmt auf deine Veranstaltung.</p>
+  <section id="leistungen">
+    <div class="container">
+      <div class="section-title">
+        <h2>Leistungen</h2>
       </div>
-      <div class="feature col-4">
-        <h3>Nebelmaschine</h3>
-        <p>Für zusätzliche Atmosphäre auf der Tanzfläche.</p>
-      </div>
-      <div class="feature col-4">
-        <h3>Aufbau & Abbau</h3>
-        <p>Ich baue alles auf, erkläre kurz die Bedienung und baue anschließend wieder ab.</p>
-      </div>
-      <div class="feature col-6">
-        <h3>Transport</h3>
-        <p>Lieferung und Abholung nach Absprache.</p>
-      </div>
-      <div class="feature col-6">
-        <h3>Organisation</h3>
-        <p>Organisation zusätzlicher Technik und Unterstützung beim Gesamtsetup.</p>
+
+      <div class="grid">
+        <div class="feature col-4">
+          <h3>PA & Sound</h3>
+          <p>PA-Anlage, Stative, Kabel & Zubehör – abgestimmt auf deine Veranstaltung.</p>
+        </div>
+
+        <div class="feature col-4">
+          <h3>Nebelmaschine</h3>
+          <p>Für zusätzliche Atmosphäre auf der Tanzfläche.</p>
+        </div>
+
+        <div class="feature col-4">
+          <h3>Aufbau & Abbau</h3>
+          <p>Ich baue alles auf, erkläre kurz die Bedienung und baue anschließend wieder ab.</p>
+        </div>
+
+        <div class="feature col-6">
+          <h3>Transport</h3>
+          <p>Lieferung und Abholung nach Absprache.</p>
+        </div>
+
+        <div class="feature col-6">
+          <h3>Organisation</h3>
+          <p>Organisation zusätzlicher Technik und Unterstützung beim Gesamtsetup.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="bilder">
-  <div class="container">
-    <div class="section-title"><h2>Einblicke ins echte Setup</h2></div>
-    <div class="gallery">
-      <div class="g-hero"><div class="img-frame"><img src="mainfoto.jpeg" alt=""></div></div>
-      <div class="g-small"><div class="img-frame"><img src="IMG_0864.jpeg" alt=""></div></div>
-      <div class="g-small"><div class="img-frame"><img src="IMG_0818.jpeg" alt=""></div></div>
-      <div class="g-small"><div class="img-frame"><img src="IMG_0853.jpeg" alt=""></div></div>
-    </div>
-  </div>
-</section>
+  <section id="bilder">
+    <div class="container">
+      <div class="section-title">
+        <h2>Einblicke ins echte Setup</h2>
+      </div>
 
-<footer>
-  <div class="container">
-    <div class="foot">
-      <div>© <script>document.write(new Date().getFullYear());</script> PA-Anlage Vermietung · yonas.event.services@gmail.com</div>
-      <div>
-        <a class="btn" href="impressum.html">Impressum</a>
-        <a class="btn" href="datenschutz.html">Datenschutz</a>
-        <a class="btn" href="anfrage.html">Anfrage</a>
+      <div class="gallery">
+        <div class="g-item g-hero">
+          <div class="img-frame">
+            <img src="mainfoto.jpeg" alt="Hauptfoto" loading="lazy">
+          </div>
+        </div>
+
+        <div class="g-item g-small">
+          <div class="img-frame">
+            <img src="IMG_0864.jpeg" alt="Setup Foto 1" loading="lazy">
+          </div>
+        </div>
+
+        <div class="g-item g-small">
+          <div class="img-frame">
+            <img src="IMG_0818.jpeg" alt="Setup Foto 2" loading="lazy">
+          </div>
+        </div>
+
+        <div class="g-item g-small">
+          <div class="img-frame">
+            <img src="IMG_0853.jpeg" alt="Setup Foto 3" loading="lazy">
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div class="foot-left">
+          <span>© <script>document.write(new Date().getFullYear());</script> Jonas Event Services</span>
+          <span>E-Mail: yonas.event.services@gmail.com</span>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="impressum.html">Impressum</a>
+          <a class="btn" href="datenschutz.html">Datenschutz</a>
+          <a class="btn" href="anfrage.html">Anfrage</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
