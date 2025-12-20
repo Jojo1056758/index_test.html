@@ -68,7 +68,7 @@
       .row{grid-template-columns:1fr}
     }
 
-    /* Datenschutz-Checkbox sauber/clean */
+    /* Clean Datenschutz */
     .consent{
       margin-top:18px;
       padding:14px;
@@ -166,18 +166,17 @@
           <input name="Ort der Veranstaltung" required placeholder="Adresse oder Location-Name">
         </label>
 
+        <!-- ✅ WICHTIG: NICHT MEHR required -->
         <label>
-          Weitere Infos <span class="req">*</span>
-          <textarea name="Nachricht" required placeholder="Art der Veranstaltung, Gästezahl, Indoor/Outdoor, Besonderheiten …"></textarea>
+          Weitere Infos
+          <textarea name="Nachricht" placeholder="Indoor / Outdoor, Gästezahl, Wünsche …"></textarea>
         </label>
 
-        <!-- Clean wie vorher: eigene Zeile, schön -->
         <label class="consent">
           <input type="checkbox" required>
           <span>
             Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen
-            und willige in die Verarbeitung meiner Daten ein.
-            <span class="req">*</span>
+            und willige in die Verarbeitung meiner Daten ein. <span class="req">*</span>
           </span>
         </label>
 
