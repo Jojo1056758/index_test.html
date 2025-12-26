@@ -53,7 +53,7 @@
     }
     .brand{display:flex; align-items:center; gap:12px;}
 
-    /* ✅ FIX: Logo zeigt jetzt YES statt „leerer Klotz“ */
+    /* LOGO – Schriftfarbe FIX */
     .logo{
       width:44px;
       height:44px;
@@ -68,7 +68,7 @@
       justify-content:center;
       font-weight:900;
       letter-spacing:.5px;
-      color:rgba(10,14,22,.90);
+      color:rgba(255,255,255,.95); /* ← HIER: wieder weiß */
       font-size:14px;
       user-select:none;
     }
@@ -104,7 +104,6 @@
       background:linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.18));
     }
 
-    /* Cards */
     .card{
       background:var(--card);
       border:1px solid var(--line);
@@ -121,7 +120,6 @@
         url("mainfoto.jpeg");
       background-size:cover;
       background-position:center;
-      filter:saturate(1.05);
     }
     .hero-main > *{position:relative; z-index:1}
 
@@ -137,75 +135,9 @@
       padding:7px 10px;
       border-radius:999px;
     }
-    .cta-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
 
     section{padding:16px 0}
-    .section-title{
-      display:flex; align-items:baseline; justify-content:space-between;
-      gap:12px; margin:6px 0 10px;
-    }
     .section-title h2{margin:0; font-size:18px}
-
-    .grid{display:grid; grid-template-columns:repeat(12, 1fr); gap:14px;}
-    .col-4{grid-column:span 4}
-    .col-6{grid-column:span 6}
-    .col-12{grid-column:span 12}
-    @media (max-width:920px){
-      .col-4,.col-6,.col-12{grid-column:span 12}
-    }
-
-    .feature{
-      padding:16px;
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-    }
-    .feature h3{margin:0 0 8px; font-size:14px}
-    .feature p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
-
-    /* Galerie */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(12, 1fr);
-      gap:12px;
-      margin-top:12px;
-    }
-    .g-item{
-      border-radius:var(--radius);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.04);
-      box-shadow:0 18px 60px rgba(0,0,0,.35);
-    }
-    .g-hero{grid-column:span 12;}
-    .g-small{grid-column:span 4;}
-    @media (max-width:920px){
-      .g-hero,.g-small{grid-column:span 12}
-    }
-
-    .img-frame{
-      width:100%;
-      aspect-ratio: 16 / 9;
-      background:rgba(0,0,0,.25);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .g-hero .img-frame{aspect-ratio: 21 / 9;}
-    @media (max-width:920px){
-      .g-hero .img-frame{aspect-ratio: 16 / 9;}
-    }
-
-    .gallery img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      object-position:center;
-      display:block;
-      transform:scale(1.01);
-      transition:transform .25s ease;
-    }
-    .g-item:hover img{transform:scale(1.03)}
 
     footer{
       padding:22px 0 40px;
@@ -218,7 +150,6 @@
       border-top:1px solid var(--line);
       padding-top:14px;
     }
-    .foot-left{display:flex; gap:10px; flex-wrap:wrap; align-items:center; line-height:1.5;}
   </style>
 </head>
 
@@ -227,9 +158,8 @@
     <div class="container">
       <div class="topbar-inner">
         <a class="brand" href="index.html">
-          <div class="logo" aria-hidden="true">YES</div>
+          <div class="logo">YES</div>
           <div class="brand-text">
-            <!-- ✅ FIX: Brand-Text -->
             <strong>Jonas Event Services</strong>
             <span>EventSound · Nebel · Technik</span>
           </div>
@@ -246,114 +176,21 @@
   <main>
     <div class="container">
       <div class="card hero-main">
-        <div class="hero-bg" aria-hidden="true"></div>
-
+        <div class="hero-bg"></div>
         <h1>EventSound, Licht und Atmosphäre für dein Event</h1>
-
         <p class="lead">
           PA-Anlage, Nebelmaschine & Zubehör direkt vor Ort.
           Zusätzlich organisiere ich bei Bedarf DJ-Equipment, Lichttechnik und weitere Event-Technik.
         </p>
-
-        <div class="pills">
-          <div class="pill">Aufbau</div>
-          <div class="pill">Abbau</div>
-          <div class="pill">Transport</div>
-          <div class="pill">Nebelmaschine</div>
-          <div class="pill">DJ-Equipment</div>
-          <div class="pill">Lichttechnik</div>
-        </div>
-
-        <div class="cta-row">
-          <a class="btn primary" href="anfrage.html">Jetzt Anfrage stellen</a>
-          <a class="btn" href="#bilder">Fotos ansehen</a>
-        </div>
       </div>
     </div>
   </main>
 
-  <section id="leistungen">
-    <div class="container">
-      <div class="section-title">
-        <h2>Leistungen</h2>
-      </div>
-
-      <div class="grid">
-        <div class="feature col-4">
-          <h3>PA & Sound</h3>
-          <p>PA-Anlage, Stative, Kabel & Zubehör – abgestimmt auf deine Veranstaltung.</p>
-        </div>
-
-        <div class="feature col-4">
-          <h3>Nebelmaschine</h3>
-          <p>Für zusätzliche Atmosphäre auf der Tanzfläche.</p>
-        </div>
-
-        <div class="feature col-4">
-          <h3>Aufbau & Abbau</h3>
-          <p>Ich baue alles auf, erkläre kurz die Bedienung und baue anschließend wieder ab.</p>
-        </div>
-
-        <div class="feature col-6">
-          <h3>Transport</h3>
-          <p>Lieferung und Abholung nach Absprache.</p>
-        </div>
-
-        <div class="feature col-6">
-          <h3>Organisation</h3>
-          <p>Organisation zusätzlicher Technik und Unterstützung beim Gesamtsetup.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="bilder">
-    <div class="container">
-      <div class="section-title">
-        <h2>Einblicke ins echte Setup</h2>
-      </div>
-
-      <div class="gallery">
-        <div class="g-item g-hero">
-          <div class="img-frame">
-            <img src="mainfoto.jpeg" alt="Hauptfoto" loading="lazy">
-          </div>
-        </div>
-
-        <div class="g-item g-small">
-          <div class="img-frame">
-            <img src="IMG_0864.jpeg" alt="Setup Foto 1" loading="lazy">
-          </div>
-        </div>
-
-        <div class="g-item g-small">
-          <div class="img-frame">
-            <img src="IMG_0818.jpeg" alt="Setup Foto 2" loading="lazy">
-          </div>
-        </div>
-
-        <div class="g-item g-small">
-          <div class="img-frame">
-            <img src="IMG_0853.jpeg" alt="Setup Foto 3" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <div class="container">
       <div class="foot">
-        <div class="foot-left">
-          <span>© <script>document.write(new Date().getFullYear());</script> Jonas Event Services</span>
-          <span>E-Mail: yonas.event.services@gmail.com</span>
-        </div>
-
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="impressum.html">Impressum</a>
-          <a class="btn" href="datenschutz.html">Datenschutz</a>
-          <a class="btn" href="anfrage.html">Anfrage</a>
-        </div>
+        <span>© <script>document.write(new Date().getFullYear());</script> Jonas Event Services</span>
+        <span>E-Mail: yonas.event.services@gmail.com</span>
       </div>
     </div>
   </footer>
