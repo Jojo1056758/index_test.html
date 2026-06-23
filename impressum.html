@@ -1,111 +1,75 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset hookup="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Impressum</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Impressum – Jonas Event Services</title>
 
-  <style>
-    :root{
-      --bg:#0b0f19;
-      --card:rgba(255,255,255,.06);
-      --line:rgba(255,255,255,.14);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.70);
-      --radius:18px;
-      --shadow:0 18px 60px rgba(0,0,0,.55);
-      --max:900px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#070a12,#090b14);
-      color:var(--text);
-      min-height:100vh;
-    }
-    .container{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-      padding:28px 0 44px;
-    }
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px;
-    }
-    h1{margin:0 0 12px}
-    h2{margin:18px 0 8px; font-size:15px}
-    p{margin:0 0 10px; color:var(--muted); line-height:1.55}
-    .row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin-top:12px;
-    }
-    @media(max-width:800px){ .row{grid-template-columns:1fr} }
-    .box{
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      border-radius:16px;
-      padding:14px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:999px;
-      padding:10px 14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.08);
-      color:var(--text);
-      text-decoration:none;
-      font-weight:700;
-      margin-top:12px;
-    }
-    .small{font-size:12px; color:var(--muted)}
-  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="container">
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <div class="brand-mark">JES</div>
+      <div class="brand-text">
+        <strong>Jonas Event Services</strong>
+        <span>PA · Nebel · Technik</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Zur Startseite</a>
+    </nav>
+  </div>
+</div>
+<div class="hazard"></div>
+
+<div class="page">
+  <div class="container narrow">
+    <div class="eyebrow">Rechtliches</div>
+    <h1>Impressum</h1>
+
     <div class="card">
-      <h1>Impressum</h1>
-      <p class="small">Angaben gemäß den geltenden Vorschriften. (Bitte prüfe die Angaben und ergänze Straße/Hausnummer, falls erforderlich.)</p>
+      <p>Angaben gemäß den geltenden Vorschriften. <em>(Bitte prüfen und ggf. Straße/Hausnummer ergänzen.)</em></p>
 
-      <div class="row">
+      <div class="boxgrid">
         <div class="box">
-          <h2>Anbieter</h2>
-          <p>Jonas Eckelmann</p>
-          <p>25462, Deutschland</p>
+          <h3>Anbieter</h3>
+          <p>Jonas Eckelmann<br>25462, Deutschland</p>
         </div>
-
         <div class="box">
-          <h2>Kontakt</h2>
-          <p>E-Mail: yonas.event.services@gmail.com</p>
+          <h3>Kontakt</h3>
+          <p>E-Mail: <a href="mailto:yonas.event.services@gmail.com">yonas.event.services@gmail.com</a></p>
         </div>
       </div>
 
-      <div class="box" style="margin-top:12px;">
-        <h2>Verantwortlich für den Inhalt</h2>
+      <div class="box" style="margin-top:14px">
+        <h3>Verantwortlich für den Inhalt</h3>
         <p>Jonas Eckelmann</p>
       </div>
 
-      <div class="box" style="margin-top:12px;">
-        <h2>Haftung für Inhalte</h2>
+      <div class="box" style="margin-top:14px">
+        <h3>Haftung für Inhalte</h3>
         <p>Ich bemühe mich, die Inhalte aktuell und korrekt zu halten. Eine Gewähr für Vollständigkeit und Aktualität kann jedoch nicht übernommen werden.</p>
-
-        <h2>Haftung für Links</h2>
+        <h3 style="margin-top:18px">Haftung für Links</h3>
         <p>Diese Website kann Links zu externen Seiten enthalten. Für Inhalte externer Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
-
-        <h2>Urheberrecht</h2>
+        <h3 style="margin-top:18px">Urheberrecht</h3>
         <p>Die auf dieser Website erstellten Inhalte und Werke unterliegen dem Urheberrecht. Eine Verwendung außerhalb der Grenzen des Urheberrechts bedarf der Zustimmung.</p>
       </div>
 
-      <a class="btn" href="index.html">Zurück zur Startseite</a>
+      <div class="form-actions">
+        <a class="btn" href="index.html">Zurück zur Startseite</a>
+      </div>
     </div>
   </div>
+</div>
+
+<footer>
+  <div class="container copyright">© 2026 Jonas Event Services</div>
+</footer>
 </body>
 </html>
