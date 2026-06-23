@@ -1,176 +1,90 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anfrage – EventSound & Technik</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anfrage – Jonas Event Services</title>
+<meta name="description" content="Anfrage für PA-Anlage, Nebelmaschine und Eventtechnik bei deinem Event." />
 
-  <style>
-    :root{
-      --bg:#0b0f19;
-      --card:rgba(255,255,255,.06);
-      --line:rgba(255,255,255,.14);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.70);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#070a12,#090b14);
-      color:var(--text);
-      min-height:100vh;
-    }
-    .container{
-      max-width:900px;
-      margin:0 auto;
-      padding:28px 16px;
-    }
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:22px;
-    }
-    h1{margin:0 0 10px}
-    p{margin:0 0 18px; color:var(--muted); font-size:14px}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 
-    label{
-      display:block;
-      font-size:13px;
-      margin-top:14px;
-    }
-    .req{
-      color:#ff9a9a;
-      margin-left:4px;
-      font-weight:700;
-    }
-
-    input, textarea{
-      width:100%;
-      padding:11px;
-      margin-top:6px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.25);
-      color:var(--text);
-      font-size:14px;
-    }
-    textarea{min-height:110px; resize:vertical}
-
-    .row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-    @media(max-width:700px){
-      .row{grid-template-columns:1fr}
-    }
-
-    /* Clean Datenschutz */
-    .consent{
-      margin-top:18px;
-      padding:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      border-radius:14px;
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.45;
-    }
-    .consent input{
-      width:18px;
-      height:18px;
-      margin-top:2px;
-      accent-color:#7dd3fc;
-      flex:0 0 auto;
-    }
-    .consent a{
-      color:rgba(255,255,255,.88);
-      text-decoration:underline;
-      text-underline-offset:2px;
-    }
-
-    .actions{
-      display:flex;
-      gap:12px;
-      margin-top:18px;
-      flex-wrap:wrap;
-    }
-    button,a.btn{
-      border-radius:999px;
-      padding:10px 16px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.08);
-      color:var(--text);
-      cursor:pointer;
-      text-decoration:none;
-      font-weight:700;
-      font-size:13px;
-    }
-    button:hover,a.btn:hover{
-      background:rgba(255,255,255,.12);
-    }
-  </style>
+<script defer src="https://plausible.io/js/pa-WQyN64T12TYpr5uxvNVIp.js"></script>
 </head>
-
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>Anfrage</h1>
-      <p>Felder mit <span class="req">*</span> sind Pflichtfelder.</p>
 
+<div class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <div class="brand-mark">JES</div>
+      <div class="brand-text">
+        <strong>Jonas Event Services</strong>
+        <span>PA · Nebel · Technik</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#pakete">Pakete</a>
+      <a href="index.html#fotos">Fotos</a>
+    </nav>
+  </div>
+</div>
+<div class="hazard"></div>
+
+<div class="page">
+  <div class="container narrow">
+    <div class="eyebrow">Case 06 / Anfrageformular</div>
+    <h1>Anfrage</h1>
+    <p class="lede">Felder mit <span class="req">*</span> sind Pflichtfelder. Ich melde mich in der Regel innerhalb von 24&nbsp;Stunden zurück.</p>
+
+    <div class="card">
       <form method="POST" action="https://formspree.io/f/mrbndkkw">
         <input type="hidden" name="_subject" value="Neue Event-Anfrage" />
         <input type="hidden" name="_redirect" value="success.html" />
 
-        <div class="row">
-          <label>
-            Name <span class="req">*</span>
-            <input name="Name" required>
-          </label>
-
-          <label>
-            E-Mail <span class="req">*</span>
-            <input name="E-Mail" type="email" required>
-          </label>
+        <div class="row2">
+          <div class="field">
+            <label for="name">Name <span class="req">*</span></label>
+            <input id="name" name="Name" required>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail <span class="req">*</span></label>
+            <input id="email" name="E-Mail" type="email" required>
+          </div>
         </div>
 
-        <label>
-          Telefon
-          <input name="Telefon">
-        </label>
-
-        <label>
-          Datum der Veranstaltung <span class="req">*</span>
-          <input name="Datum" type="date" required>
-        </label>
-
-        <div class="row">
-          <label>
-            Uhrzeit von <span class="req">*</span>
-            <input name="Uhrzeit von" type="time" required>
-          </label>
-          <label>
-            Uhrzeit bis <span class="req">*</span>
-            <input name="Uhrzeit bis" type="time" required>
-          </label>
+        <div class="field">
+          <label for="phone">Telefon</label>
+          <input id="phone" name="Telefon">
         </div>
 
-        <label>
-          Ort der Veranstaltung <span class="req">*</span>
-          <input name="Ort der Veranstaltung" required placeholder="Adresse oder Location-Name">
-        </label>
+        <div class="field">
+          <label for="date">Datum der Veranstaltung <span class="req">*</span></label>
+          <input id="date" name="Datum" type="date" required>
+        </div>
 
-        <!-- ✅ WICHTIG: NICHT MEHR required -->
-        <label>
-          Weitere Infos
-          <textarea name="Nachricht" placeholder="Indoor / Outdoor, Gästezahl, Wünsche …"></textarea>
-        </label>
+        <div class="row2">
+          <div class="field">
+            <label for="von">Uhrzeit von <span class="req">*</span></label>
+            <input id="von" name="Uhrzeit von" type="time" required>
+          </div>
+          <div class="field">
+            <label for="bis">Uhrzeit bis <span class="req">*</span></label>
+            <input id="bis" name="Uhrzeit bis" type="time" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="ort">Ort der Veranstaltung <span class="req">*</span></label>
+          <input id="ort" name="Ort der Veranstaltung" required placeholder="Adresse oder Location-Name">
+        </div>
+
+        <div class="field">
+          <label for="info">Weitere Infos</label>
+          <textarea id="info" name="Nachricht" placeholder="Indoor / Outdoor, Gästezahl, gewünschtes Paket, Wünsche …"></textarea>
+        </div>
 
         <label class="consent">
           <input type="checkbox" required>
@@ -180,12 +94,29 @@
           </span>
         </label>
 
-        <div class="actions">
-          <button type="submit">Anfrage senden</button>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Anfrage senden</button>
           <a class="btn" href="index.html">Zurück</a>
         </div>
       </form>
     </div>
   </div>
+</div>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="brand-text">
+      <strong>Jonas Event Services</strong>
+      <span>E-Mail: yonas.event.services@gmail.com</span>
+    </div>
+    <div class="footlinks">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <div class="container copyright">© 2026 Jonas Event Services</div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
